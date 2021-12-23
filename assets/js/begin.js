@@ -18,7 +18,6 @@ button3.addEventListener('click', function() {
     document.location.replace("index2.html");
 })
 
-let buttonS = document.getElementById("btnS");
 let name = document.getElementById("name");
 let photo = document.getElementById("photo");
 let exit = document.getElementById("ext");

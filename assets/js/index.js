@@ -19,18 +19,6 @@ let name = document.getElementById("name");
 name.innerHTML = localStorage.getItem('name');
 let timeMinut = 0;
 let photo = document.getElementById("photo");
-// if (localStorage.getItem('photo') === '1') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/photo.jpg)";
-// }
-// if (localStorage.getItem('photo') === '2') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/photo1.jpg)";
-// }
-// if (localStorage.getItem('photo') === '3') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/photo3.jpg)";
-// }
-// if (localStorage.getItem('photo') === '0') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/1.png)";
-// }
 
 if ((localStorage.getItem('photo') === '1') && (localStorage.theme === "blue")) {
     photo.style.backgroundImage = "url(../assets/css/pics/photo.jpg)";

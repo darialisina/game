@@ -54,13 +54,13 @@ function tableCreate() {
     statistic.sort((o1, o2) => o2.sum - o1.sum);
 
     statistic.forEach((result) => {
-        var tr = document.createElement('tr');
-        var td = document.createElement('td');
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
         td.innerHTML = result.username;
         tr.appendChild(td);
-        var td = document.createElement('td');
-        td.innerHTML = 60 - result.sum;
-        tr.appendChild(td);
+        let td1 = document.createElement('td');
+        td1.innerHTML = 60 - result.sum;
+        tr.appendChild(td1);
         tbl.appendChild(tr);
     });
 
