@@ -180,7 +180,7 @@ body.year #gameOver {
     width: 40%;
     height: 70%;
     background-color: #61b527;
-    border: 5px solid 61b527;
+    border: 5px solid #61b527;
     border-radius: 3em;
     text-align: center;
     justify-content: center;
@@ -256,7 +256,7 @@ body.year #gameOver {
     width: 80%;
     height: 50%;
     background-color: #d6352b;
-    border: 5px solid 61b527;
+    border: 5px solid #d6352b;
     border-radius: 3em;
     text-align: center;
     justify-content: center;
