@@ -1,0 +1,279 @@
+.body {
+    font-size: 100px;
+}
+
+.parent {
+    position: absolute;
+}
+
+.section {
+    width: 100%;
+    height: 33.4em;
+    background-image: url(../css/pics/fone.jpg);
+    background-size: cover;
+}
+
+body.year .section {
+    background-image: url(../css/pics/fone2.jpg);
+}
+
+.pole {
+    position: relative;
+    left: 20%;
+    top: 1em;
+    display: flex;
+    flex-direction: column;
+    height: 28em;
+    width: 60%;
+}
+
+.pole1 {
+    position: relative;
+    left: 20%;
+    top: 1em;
+    display: flex;
+    flex-direction: column;
+    height: 32em;
+    width: 60%;
+}
+
+.pole1 div {
+    flex-basis: 25%;
+}
+
+.pole div {
+    flex-basis: 25%;
+}
+
+.stroka {
+    display: flex;
+}
+
+.box-nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #59aa48;
+    border-bottom: 5px solid rgb(254, 255, 255);
+    flex-direction: row;
+}
+
+body.year .box-nav {
+    background-color: #0b5445;
+}
+
+.box {
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.lodka {
+    width: 4em;
+    height: 2.5em;
+    background-image: url(../css/pics/lodka.png);
+    background-size: contain;
+}
+
+body.year .lodka {
+    width: 3.3em;
+    height: 2.5em;
+    background-image: url(../css/pics/santa.png);
+    background-size: contain;
+}
+
+.start {
+    width: 5.5em;
+    height: 5.5em;
+    background-image: url(../css/pics/start.png);
+    background-size: contain;
+}
+
+#finish {
+    width: 5.5em;
+    height: 5.5em;
+    background-image: url(../css/pics/finish.png);
+    background-size: contain;
+}
+
+body.year #finish {
+    width: 8em;
+    height: 4.5em;
+    background-image: url(../css/pics/gift.png);
+    background-size: contain;
+}
+
+.start1 {
+    width: 4em;
+    height: 4em;
+    background-image: url(../css/pics/start.png);
+    background-size: contain;
+}
+
+#finish1 {
+    width: 4em;
+    height: 4em;
+    background-image: url(../css/pics/finish.png);
+    background-size: contain;
+}
+
+body.year #finish1 {
+    width: 6.8em;
+    height: 4em;
+    background-image: url(../css/pics/gift.png);
+    background-size: contain;
+}
+
+.start2 {
+    width: 3em;
+    height: 3em;
+    background-image: url(../css/pics/start.png);
+    background-size: contain;
+}
+
+#finish2 {
+    position: absolute;
+    left: 90%;
+    top: 90%;
+    width: 3em;
+    height: 3em;
+    background-image: url(../css/pics/finish.png);
+    background-size: contain;
+}
+
+body.year #finish2 {
+    width: 5em;
+    height: 3em;
+    background-image: url(../css/pics/gift.png);
+    background-size: contain;
+}
+
+.clock {
+    position: relative;
+    width: 4.5em;
+    height: 4.5em;
+    background-image: url(../css/pics/clock.png);
+    background-size: contain;
+}
+
+body.year .clock {
+    position: relative;
+    width: 4.5em;
+    height: 4.5em;
+    background-image: url(../css/pics/clock2.png);
+    background-size: contain;
+}
+
+.timer {
+    font-family: sans-serif;
+    font-size: 2em;
+    color: rgb(250, 247, 234);
+}
+
+#gameOver {
+    top: 30%;
+    left: 30%;
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    background-color: #59aa48;
+    border: 5px solid #59aa48;
+    border-radius: 3em;
+    text-align: center;
+    justify-content: center;
+    z-Index: 10000;
+}
+
+body.year #gameOver {
+    background-color: #0b5445;
+    border: 5px solid #0b5445;
+}
+
+.button {
+    top: 40%;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    background-color: #b45c25;
+    border-radius: 0.5em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(250, 247, 234);
+}
+
+.button1 {
+    top: 65%;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+    position: absolute;
+    background-color: #b45c25;
+    border-radius: 0.5em;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(250, 247, 234);
+}
+
+body.year .button {
+    background-color: #e29162;
+}
+
+body.year .button1 {
+    background-color: #e29162;
+}
+
+#gameOver p {
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(250, 247, 234);
+}
+
+#over {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#over2 {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#bg {
+    position: absolute;
+    z-index: 9500;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+}
+
+.photo {
+    position: relative;
+    left: 72%;
+    width: 4em;
+    height: 4em;
+    background-image: url(../css/pics/photo.jpg);
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.name {
+    position: relative;
+    left: 73%;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: rgb(250, 247, 234);
+}

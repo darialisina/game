@@ -1,0 +1,352 @@
+.body {
+    font-size: 100px;
+}
+
+.section {
+    width: 100%;
+    height: 38.5em;
+    background-image: url(../css/pics/fone.jpg);
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: -5px 0;
+}
+
+body.year .section {
+    width: 100%;
+    height: 38.5em;
+    background-image: url(../css/pics/fone2.jpg);
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: -5px 0;
+}
+
+.photo {
+    position: absolute;
+    left: 80%;
+    top: 3%;
+    width: 4em;
+    height: 4em;
+    background-image: url(../css/pics/1.png);
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.name {
+    position: absolute;
+    width: 10%;
+    left: 88%;
+    top: 6%;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: rgb(250, 247, 234);
+    word-break: break-all;
+    text-align: left;
+}
+
+.buttonS {
+    top: 83%;
+    left: 15%;
+    width: 30%;
+    height: 12%;
+    position: absolute;
+    border-radius: 0.5em;
+    background-color: #f5d632;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(250, 250, 252);
+    border: 0;
+}
+
+.buttonS:hover {
+    border: 3px solid #16a2cb;
+}
+
+body.year .buttonS:hover {
+    border: 3px solid #ffffff;
+}
+
+body.year .buttonS {
+    background-color: #870a15;
+}
+
+.tema {
+    top: 83%;
+    left: 55%;
+    width: 30%;
+    height: 12%;
+    position: absolute;
+    border-radius: 0.5em;
+    background-color: #f5d632;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(250, 250, 252);
+    border: 0;
+}
+
+.tema:hover {
+    border: 3px solid #16a2cb;
+}
+
+body.year .tema {
+    background-color: #870a15;
+}
+
+body.year .tema:hover {
+    border: 3px solid #ffffff;
+}
+
+.pers {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.pers div {
+    flex-basis: 33%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.buttonP1 {
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background-image: url(../css/pics/photo.jpg);
+    background-size: cover;
+    border: 0;
+}
+
+.buttonP1:hover {
+    border: 3px solid #f5d632;
+}
+
+body.year .buttonP1 {
+    background-image: url(../css/pics/photo20.jpg);
+}
+
+body.year .buttonP1:hover {
+    border: 3px solid #e29162;
+}
+
+.buttonP2 {
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background-image: url(../css/pics/photo1.jpg);
+    background-size: cover;
+    border: 0;
+}
+
+.buttonP2:hover {
+    border: 3px solid #f5d632;
+}
+
+body.year .buttonP2 {
+    background-image: url(../css/pics/photo21.jpg);
+}
+
+body.year .buttonP2:hover {
+    border: 3px solid #e29162;
+}
+
+.buttonP3 {
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background-image: url(../css/pics/photo3.jpg);
+    background-size: cover;
+    border: 0;
+}
+
+.buttonP3:hover {
+    border: 3px solid #f5d632;
+}
+
+body.year .buttonP3 {
+    background-image: url(../css/pics/photo22.jpg);
+}
+
+body.year .buttonP3:hover {
+    border: 3px solid #e29162;
+}
+
+body.year #gameOver {
+    background-color: #0b5445;
+}
+
+#gameOver {
+    top: 15%;
+    left: 30%;
+    position: absolute;
+    width: 40%;
+    height: 70%;
+    background-color: #61b527;
+    border: 5px solid 61b527;
+    border-radius: 3em;
+    text-align: center;
+    justify-content: center;
+    z-Index: 10000;
+}
+
+.inputP {
+    top: 68%;
+    left: 5%;
+    width: 90%;
+    height: 8%;
+    position: absolute;
+    border-radius: 0.5em;
+    font-family: sans-serif;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #16a2cb;
+    border: 0;
+}
+
+#gameOver p {
+    margin-top: 6%;
+    margin-bottom: 1%;
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(250, 247, 234);
+    /* text-shadow: 2px 2px 2px #a2d1eb; */
+}
+
+.line {
+    width: 40%;
+    height: 1.5%;
+    background-color: white;
+    margin-bottom: 3%;
+    margin-left: 30%;
+}
+
+.razmetka {
+    margin-left: 1em;
+    text-align: left;
+    justify-content: center;
+}
+
+.razmetka p1 {
+    font-family: sans-serif;
+    font-size: 1.3em;
+    color: rgb(250, 247, 234);
+}
+
+#over {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#bg {
+    position: absolute;
+    z-index: 9500;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.5;
+}
+
+.atten {
+    top: 25%;
+    left: 10%;
+    position: absolute;
+    width: 80%;
+    height: 50%;
+    background-color: #d6352b;
+    border: 5px solid 61b527;
+    border-radius: 3em;
+    text-align: center;
+    justify-content: center;
+    z-Index: 10001;
+    display: none;
+}
+
+.atten p1 {
+    top: 1em;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: rgb(250, 247, 234);
+}
+
+.atten p2 {
+    margin-top: 2em;
+    margin-left: -15em;
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bolder;
+    color: rgb(250, 247, 234);
+}
+
+.razmetka2 {
+    margin-left: 1em;
+    text-align: center;
+    justify-content: center;
+}
+
+.buttonSS {
+    top: 80%;
+    left: 10%;
+    width: 30%;
+    height: 12%;
+    position: absolute;
+    border-radius: 0.5em;
+    background-color: #f5d632;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(250, 250, 252);
+    border: 0;
+}
+
+.buttonSS:hover {
+    border: 3px solid #16a2cb;
+    font-size: 1em;
+}
+
+body.year .buttonSS {
+    background-color: #011655;
+}
+
+body.year .buttonSS:hover {
+    border: 3px solid #ffffff;
+}
+
+.reload {
+    top: 80%;
+    left: 60%;
+    width: 30%;
+    height: 12%;
+    position: absolute;
+    border-radius: 0.5em;
+    background-color: #f5d632;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(250, 250, 252);
+    border: 0;
+}
+
+.reload:hover {
+    border: 3px solid #16a2cb;
+    font-size: 1em;
+}
+
+body.year .reload {
+    background-color: #011655;
+}
+
+body.year .reload:hover {
+    border: 3px solid #ffffff;
+}
