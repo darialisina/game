@@ -28,10 +28,12 @@ reload.addEventListener('click', function() {
 
 buttonS.addEventListener('click', function() {
     var have = false;
-    for (let key of Object.keys(results)) {
-        if (text.value === key) {
-            have = true;
-        };
+    if (results != null) {
+        for (let key of Object.keys(results)) {
+            if (text.value === key) {
+                have = true;
+            };
+        }
     }
     if (have) {
         atten.style.display = "block";
@@ -42,6 +44,7 @@ buttonS.addEventListener('click', function() {
             document.location.replace("start.html");
         }
     }
+
 })
 
 let buttonP1 = document.getElementById("btnP1");

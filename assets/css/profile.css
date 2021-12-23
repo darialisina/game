@@ -4,7 +4,7 @@
 
 .section {
     width: 100%;
-    height: 38.5em;
+    height: 100vh;
     background-image: url(../css/pics/fone.jpg);
     background-size: cover;
     text-align: center;
@@ -14,14 +14,7 @@
 }
 
 body.year .section {
-    width: 100%;
-    height: 38.5em;
     background-image: url(../css/pics/fone2.jpg);
-    background-size: cover;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin: -5px 0;
 }
 
 .photo {

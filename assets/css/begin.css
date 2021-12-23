@@ -59,7 +59,7 @@ body.year .exit {
 .section {
     position: absolute;
     width: 100%;
-    height: 38.5em;
+    height: 100vh;
     background-image: url(../css/pics/fone.jpg);
     background-size: cover;
     text-align: center;
