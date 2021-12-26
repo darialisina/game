@@ -20,7 +20,6 @@ name.innerHTML = localStorage.getItem('name');
 let timeMinut = 0;
 let photo = document.getElementById("photo");
 
-
 if ((localStorage.getItem('photo') === '1') && (localStorage.theme === "blue")) {
     photo.style.backgroundImage = "url(../assets/css/pics/photo.jpg)";
     console.log(localStorage.theme);
