@@ -43,9 +43,22 @@ function tableCreate() {
 
     for (let key of Object.keys(results)) {
         let result = results[key];
-        if (result.level1 != null && result.level2 != null && result.level3 != null) {
+        if (result.level1 != null || result.level2 != null || result.level3 != null) {
+            console.log(result.level1);
+            if (result.level1 === null) {
+                result.level1 = 0;
+            }
+            if (result.level2 === null) {
+                result.level2 = 0;
+            }
+            if (result.level3 === null) {
+                result.level3 = 0;
+            }
             statistic.push({
                 username: key,
+                level1: result.level1,
+                level2: result.level2,
+                level3: result.level3,
                 sum: summ(result)
             });
         }
@@ -59,8 +72,11 @@ function tableCreate() {
         td.innerHTML = result.username;
         tr.appendChild(td);
         var td = document.createElement('td');
-        td.innerHTML = 60 - result.sum;
+        var td1 = document.createElement('td');
+        td.innerHTML = '1 уровень: ' + (result.level1) + "<br/><b>" + '2 уровень: ' + (result.level2) + "<br/><b>" + '3 уровень: ' + (result.level3);
         tr.appendChild(td);
+        td1.innerHTML = result.sum;
+        tr.appendChild(td1);
         tbl.appendChild(tr);
     });
 

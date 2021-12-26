@@ -3,9 +3,9 @@
 }
 
 .photo {
-    position: relative;
+    position: absolute;
     left: 85%;
-    top: -54%;
+    top: 2%;
     width: 4em;
     height: 4em;
     background-image: url(../css/pics/1.png);
@@ -14,10 +14,10 @@
 }
 
 .name {
-    position: relative;
-    left: 93%;
-    width: 10%;
-    top: -89%;
+    position: absolute;
+    left: 91.5%;
+    width: 7em;
+    top: 6%;
     font-family: sans-serif;
     font-size: 1.2em;
     color: rgb(250, 247, 234);

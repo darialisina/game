@@ -19,18 +19,7 @@ ball.style.top = '0.3em';
 let name = document.getElementById("name");
 name.innerHTML = localStorage.getItem('name');
 let photo = document.getElementById("photo");
-// if (localStorage.getItem('photo') === '1') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/photo.jpg)";
-// }
-// if (localStorage.getItem('photo') === '2') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/photo1.jpg)";
-// }
-// if (localStorage.getItem('photo') === '3') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/photo3.jpg)";
-// }
-// if (localStorage.getItem('photo') === '0') {
-//     photo.style.backgroundImage = "url(../assets/css/pics/1.png)";
-// }
+
 
 if ((localStorage.getItem('photo') === '1') && (localStorage.theme === "blue")) {
     photo.style.backgroundImage = "url(../assets/css/pics/photo.jpg)";
@@ -66,7 +55,7 @@ btnM.addEventListener('click', function() {
     document.location.replace("start.html");
 })
 ball.onmousedown = function(e) {
-    timeMinut = 30;
+    timeMinut = 40;
     timer = setInterval(function() {
         seconds = timeMinut % 60
         minutes = timeMinut / 60 % 60

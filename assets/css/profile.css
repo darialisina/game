@@ -47,7 +47,7 @@ body.year .section {
     height: 12%;
     position: absolute;
     border-radius: 0.5em;
-    background-color: #f5d632;
+    background-color: #29b9f7;
     font-family: sans-serif;
     font-size: 1.2em;
     font-weight: bold;
@@ -56,7 +56,7 @@ body.year .section {
 }
 
 .buttonS:hover {
-    border: 3px solid #16a2cb;
+    border: 3px solid #009ece;
 }
 
 body.year .buttonS:hover {
@@ -74,7 +74,7 @@ body.year .buttonS {
     height: 12%;
     position: absolute;
     border-radius: 0.5em;
-    background-color: #f5d632;
+    background-color: #29b9f7;
     font-family: sans-serif;
     font-size: 1.2em;
     font-weight: bold;
@@ -83,7 +83,7 @@ body.year .buttonS {
 }
 
 .tema:hover {
-    border: 3px solid #16a2cb;
+    border: 3px solid #009ece;
 }
 
 body.year .tema {
