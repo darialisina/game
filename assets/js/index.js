@@ -56,6 +56,8 @@ btnM.addEventListener('click', function() {
     document.location.replace("start.html");
 })
 ball.onmousedown = function(e) {
+    // ball.style.width = "6%";
+    // ball.style.height = "9%";
     // let timeMinut = 20;
     let timer = setInterval(function() {
         seconds = timeMinut % 60
@@ -83,9 +85,10 @@ ball.onmousedown = function(e) {
 
         var ballWidth = ball.getBoundingClientRect().width;
         var ballHeight = ball.getBoundingClientRect().height;
-        if (ballHeight * ballWidth != coverSquear) {
+        if (ballHeight * ballWidth - 2 > coverSquear || ballHeight * ballWidth + 2 < coverSquear) {
             stopGame();
-            // console.log(lineElemets.length - 1);
+            console.log(coverSquear);
+            console.log(ballHeight * ballWidth);
         }
         if (meet(win, ball) != 0) {
             clearInterval(timer);

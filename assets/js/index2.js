@@ -85,7 +85,7 @@ ball.onmousedown = function(e) {
 
         var ballWidth = ball.getBoundingClientRect().width;
         var ballHeight = ball.getBoundingClientRect().height;
-        if (ballHeight * ballWidth != coverSquear) {
+        if (ballHeight * ballWidth - 2 > coverSquear || ballHeight * ballWidth + 2 < coverSquear) {
             stopGame();
             console.log(lineElemets.length - 1);
         }

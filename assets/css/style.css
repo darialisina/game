@@ -84,8 +84,9 @@ body.year .box-nav {
 }
 
 .lodka {
-    width: 4em;
-    height: 2.5em;
+    position: absolute;
+    width: 3.5em;
+    height: 2.2em;
     background-image: url(../css/pics/lodka.png);
     background-size: contain;
 }
@@ -98,6 +99,7 @@ body.year .lodka {
 }
 
 .start {
+    position: absolute;
     width: 5.5em;
     height: 5.5em;
     background-image: url(../css/pics/start.png);
