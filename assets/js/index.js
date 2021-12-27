@@ -56,9 +56,6 @@ btnM.addEventListener('click', function() {
     document.location.replace("start.html");
 })
 ball.onmousedown = function(e) {
-    // ball.style.width = "6%";
-    // ball.style.height = "9%";
-    // let timeMinut = 20;
     let timer = setInterval(function() {
         seconds = timeMinut % 60
         minutes = timeMinut / 60 % 60
@@ -87,15 +84,15 @@ ball.onmousedown = function(e) {
         var ballHeight = ball.getBoundingClientRect().height;
         if (ballHeight * ballWidth - 2 > coverSquear || ballHeight * ballWidth + 2 < coverSquear) {
             stopGame();
-            console.log(coverSquear);
-            console.log(ballHeight * ballWidth);
+
         }
         if (meet(win, ball) != 0) {
             clearInterval(timer);
             winGame();
         }
         if (meet(ball, prep) != 0) {
-            stopGame();
+            fall();
+            setTimeout(() => { stopGame(); }, 1000);
         }
         ball.style.left = e.pageX - ball.offsetWidth / 2 + 'px';
         ball.style.top = e.pageY - ball.offsetHeight / 2 + 'px';
@@ -238,12 +235,18 @@ for (var i = 0; i < items.length; i++) {
 }
 
 let time = 1250;
+let direct = true;
 let timer1 = setInterval(function() {
 
-    if (time >= 625) {
+    if (direct && prep.getBoundingClientRect().right < container.getBoundingClientRect().right) {
         forward();
     } else {
-        back();
+        direct = false;
+        if (!direct && prep.getBoundingClientRect().left > container.getBoundingClientRect().left) {
+            back();
+        } else {
+            direct = true;
+        }
     }
     if (time <= 0) {
         time = 1250;
@@ -268,4 +271,12 @@ function back() {
     } else {
         prep.style.backgroundImage = "url(../assets/css/pics/fish.png)";
     }
+}
+
+function fall() {
+    document.onmousemove = null;
+    ball.onmouseup = null;
+    ball.onmousedown = null;
+    clearInterval(timer1);
+    prep.style.transform = 'rotate(-90deg)';
 }
