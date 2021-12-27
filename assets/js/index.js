@@ -17,8 +17,9 @@ ball.style.left = '0.3em';
 ball.style.top = '1em';
 let name = document.getElementById("name");
 name.innerHTML = localStorage.getItem('name');
-let timeMinut = 0;
+let timeMinut = 20;
 let photo = document.getElementById("photo");
+var prep = document.getElementById('y');
 
 if ((localStorage.getItem('photo') === '1') && (localStorage.theme === "blue")) {
     photo.style.backgroundImage = "url(../assets/css/pics/photo.jpg)";
@@ -55,8 +56,8 @@ btnM.addEventListener('click', function() {
     document.location.replace("start.html");
 })
 ball.onmousedown = function(e) {
-    timeMinut = 15;
-    timer = setInterval(function() {
+    // let timeMinut = 20;
+    let timer = setInterval(function() {
         seconds = timeMinut % 60
         minutes = timeMinut / 60 % 60
         if (timeMinut <= 0) {
@@ -84,10 +85,14 @@ ball.onmousedown = function(e) {
         var ballHeight = ball.getBoundingClientRect().height;
         if (ballHeight * ballWidth != coverSquear) {
             stopGame();
-            console.log(lineElemets.length - 1);
+            // console.log(lineElemets.length - 1);
         }
         if (meet(win, ball) != 0) {
+            clearInterval(timer);
             winGame();
+        }
+        if (meet(ball, prep) != 0) {
+            stopGame();
         }
         ball.style.left = e.pageX - ball.offsetWidth / 2 + 'px';
         ball.style.top = e.pageY - ball.offsetHeight / 2 + 'px';
@@ -120,6 +125,9 @@ function meet(obj1, obj2) {
     }
 }
 
+
+
+
 function stopGame() {
     clearInterval(timer);
     over.style.display = "block";
@@ -128,13 +136,52 @@ function stopGame() {
     ball.onmousedown = null;
 }
 
-function winGame() {
-    safeResult();
+let exit = document.getElementById("ext");
+
+exit.addEventListener('click', function() {
     clearInterval(timer);
     over2.style.display = "block";
     document.onmousemove = null;
     ball.onmouseup = null;
     ball.onmousedown = null;
+})
+
+let fire = document.getElementById("fire");
+
+function winGame() {
+    safeResult();
+    exit.style.display = "block";
+    fire.style.display = "block";
+    ball.onmouseup = function() {
+        document.onmousemove = null;
+        ball.onmouseup = null;
+    }
+    var a = 1,
+        b = 0,
+        c = 0,
+        d = 1,
+        tx = 10,
+        ty = 10,
+        angle = 0,
+        currentAngle;
+
+    function getAngleToRAD() {
+        if (angle === 360) {
+            angle = 0;
+        }
+
+        return angle++ * Math.PI / 180;
+    }
+
+
+    function update() {
+        currentAngle = getAngleToRAD();
+
+        win.style.transform = 'matrix(' + Math.cos(currentAngle) + ',' + Math.sin(currentAngle) + ',' + -Math.sin(currentAngle) + ',' + Math.cos(currentAngle) + ',' + tx + ',' + tx + ')'
+        window.requestAnimationFrame(update);
+    }
+
+    update();
 }
 
 function safeResult() {
@@ -153,6 +200,7 @@ function safeResult() {
             level3: null
         }
     }
+
 
     let currTime = timeMinut;
     let lastRes = result[user].level1;
@@ -174,6 +222,7 @@ var items = [
 ];
 
 
+
 for (var i = 0; i < items.length; i++) {
     for (var j = 0; j < items[i].length; j++) {
         if (items[i][j] === 1) {
@@ -182,5 +231,38 @@ for (var i = 0; i < items.length; i++) {
         } else {
             container.children[i].children[j].style.background = 'transparent';
         }
+    }
+}
+
+let time = 1250;
+let timer1 = setInterval(function() {
+
+    if (time >= 625) {
+        forward();
+    } else {
+        back();
+    }
+    if (time <= 0) {
+        time = 1250;
+    }
+}, 10);
+
+function forward() {
+    prep.style.left = prep.getBoundingClientRect().left + 2 + 'px';
+    --time;
+    if (localStorage.theme === "blue year") {
+        prep.style.backgroundImage = "url(../assets/css/pics/grinch.png)";
+    } else {
+        prep.style.backgroundImage = "url(../assets/css/pics/fish2.png)";
+    }
+}
+
+function back() {
+    prep.style.left = prep.getBoundingClientRect().left - 2 + 'px';
+    --time;
+    if (localStorage.theme === "blue year") {
+        prep.style.backgroundImage = "url(../assets/css/pics/grinch1.png)";
+    } else {
+        prep.style.backgroundImage = "url(../assets/css/pics/fish.png)";
     }
 }

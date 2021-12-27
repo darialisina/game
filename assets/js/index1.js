@@ -19,6 +19,7 @@ ball.style.top = '0.3em';
 let name = document.getElementById("name");
 name.innerHTML = localStorage.getItem('name');
 let photo = document.getElementById("photo");
+var prep = document.getElementById('y');
 
 
 if ((localStorage.getItem('photo') === '1') && (localStorage.theme === "blue")) {
@@ -55,7 +56,7 @@ btnMenu.addEventListener('click', function() {
     document.location.replace("start.html");
 })
 ball.onmousedown = function(e) {
-    timeMinut = 25;
+    timeMinut = 10;
     timer = setInterval(function() {
         seconds = timeMinut % 60
         minutes = timeMinut / 60 % 60
@@ -87,7 +88,12 @@ ball.onmousedown = function(e) {
             console.log(lineElemets.length - 1);
         }
         if (meet(win, ball) != 0) {
+            clearInterval(timer);
             winGame();
+        }
+
+        if (meet(ball, prep) != 0) {
+            stopGame();
         }
         ball.style.left = e.pageX - ball.offsetWidth / 2 + 'px';
         ball.style.top = e.pageY - ball.offsetHeight / 2 + 'px';
@@ -120,6 +126,23 @@ function meet(obj1, obj2) {
     }
 }
 
+// function stopGame() {
+//     clearInterval(timer);
+//     over.style.display = "block";
+//     document.onmousemove = null;
+//     ball.onmouseup = null;
+//     ball.onmousedown = null;
+// }
+
+// function winGame() {
+//     safeResult();
+//     clearInterval(timer);
+//     over2.style.display = "block";
+//     document.onmousemove = null;
+//     ball.onmouseup = null;
+//     ball.onmousedown = null;
+// }
+
 function stopGame() {
     clearInterval(timer);
     over.style.display = "block";
@@ -128,13 +151,50 @@ function stopGame() {
     ball.onmousedown = null;
 }
 
-function winGame() {
-    safeResult();
+let exit = document.getElementById("ext");
+
+exit.addEventListener('click', function() {
     clearInterval(timer);
     over2.style.display = "block";
     document.onmousemove = null;
     ball.onmouseup = null;
     ball.onmousedown = null;
+})
+
+
+function winGame() {
+    safeResult();
+    exit.style.display = "block";
+    ball.onmouseup = function() {
+        document.onmousemove = null;
+        ball.onmouseup = null;
+    }
+    var a = 1,
+        b = 0,
+        c = 0,
+        d = 1,
+        tx = 10,
+        ty = 10,
+        angle = 0,
+        currentAngle;
+
+    function getAngleToRAD() {
+        if (angle === 360) {
+            angle = 0;
+        }
+
+        return angle++ * Math.PI / 180;
+    }
+
+
+    function update() {
+        currentAngle = getAngleToRAD();
+
+        win.style.transform = 'matrix(' + Math.cos(currentAngle) + ',' + Math.sin(currentAngle) + ',' + -Math.sin(currentAngle) + ',' + Math.cos(currentAngle) + ',' + tx + ',' + tx + ')'
+        window.requestAnimationFrame(update);
+    }
+
+    update();
 }
 
 function safeResult() {
@@ -166,14 +226,98 @@ ball.ondragstart = function() {
 };
 
 var items = [
-    [1, 1, 1, 1, 1, 1],
-    [0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1],
-    [0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1]
+    [1, 0, 1, 0, 1, 0],
+    [0, 0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 1, 0],
+    [0, 0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 1, 0]
 ];
+
+var itemsRows = items.length;
+var itemsColumns = items[0].length;
+
+generateFields();
+
+function generateFields() {
+    for (let i = 0; i < itemsRows; i = i + 2) {
+        for (let j = 0; j < itemsColumns; j = j + 2) {
+            if (i !== 0) {
+                let direction = Math.floor(Math.random() * 2);
+                if (direction === 0) {
+                    if (j !== itemsColumns - 2) {
+                        items[i][j + 1] = 1;
+                    } else {
+                        items[i - 1][j] = 1;
+                    }
+                } else {
+                    items[i - 1][j] = 1;
+                }
+            } else {
+                if (j !== itemsColumns - 2) {
+                    items[i][j + 1] = 1;
+                }
+            }
+
+        }
+    }
+}
+
+function setSunduk() {
+    win = document.createElement('div');
+    win.id = "finish1";
+    var tmp = [
+        [1, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
+    let tmpRows = tmp.length;
+    let tmpColumns = tmp.length;
+
+    let queue = [
+        [0, 0]
+    ];
+
+    while (queue.length > 0) {
+        let v = queue.shift();
+        let x = v[0];
+        let y = v[1];
+        let curr = tmp[y][x];
+        if (x !== tmpColumns - 1 && items[y * 2][2 * x + 1] !== 0 && tmp[y][x + 1] === 0) {
+            queue.push([x + 1, y]);
+            tmp[y][x + 1] = curr + 1;
+        }
+
+        if (y !== tmpRows - 1 && items[y * 2 + 1][2 * x] !== 0 && tmp[y + 1][x] === 0) {
+            queue.push([x, y + 1]);
+            tmp[y + 1][x] = curr + 1;
+        }
+
+        if (x !== 0 && items[y * 2][2 * x - 1] !== 0 && tmp[y][x - 1] === 0) {
+            queue.push([x - 1, y]);
+            tmp[y][x - 1] = curr + 1;
+        }
+
+        if (y !== 0 && items[y * 2 - 1][2 * x] !== 0 && tmp[y - 1][x] === 0) {
+            queue.push([x, y - 1]);
+            tmp[y - 1][x] = curr + 1;
+        }
+    }
+
+    let maxLength = tmp[0][0];
+    let x = 0;
+    let y = 0;
+
+    for (let i = 0; i < tmpRows; i++) {
+        for (let j = 0; j < tmpColumns; j++) {
+            if (tmp[i][j] >= maxLength) {
+                maxLength = tmp[i][j];
+                x = j;
+                y = i;
+            }
+        }
+    }
+    container.children[y * 2].children[x * 2].appendChild(win);
+}
 
 
 for (var i = 0; i < items.length; i++) {
@@ -184,5 +328,42 @@ for (var i = 0; i < items.length; i++) {
         } else {
             container.children[i].children[j].style.background = 'transparent';
         }
+    }
+}
+
+setSunduk();
+
+let time = 120;
+let timer1 = setInterval(function() {
+
+    if (time >= 60) {
+        forward();
+    } else {
+        back();
+    }
+    if (time <= -5) {
+        time = 125;
+    }
+}, 80);
+
+function forward() {
+    prep.style.left = prep.getBoundingClientRect().left + 20 + 'px';
+    prep.style.top = prep.getBoundingClientRect().top + 15 * Math.sin(prep.getBoundingClientRect().left) + 'px';
+    --time;
+    if (localStorage.theme === "blue year") {
+        prep.style.backgroundImage = "url(../assets/css/pics/grinch.png)";
+    } else {
+        prep.style.backgroundImage = "url(../assets/css/pics/fish2.png)";
+    }
+}
+
+function back() {
+    prep.style.left = prep.getBoundingClientRect().left - 20 + 'px';
+    prep.style.top = prep.getBoundingClientRect().top - 15 * Math.sin(prep.getBoundingClientRect().left) + 'px';
+    --time;
+    if (localStorage.theme === "blue year") {
+        prep.style.backgroundImage = "url(../assets/css/pics/grinch1.png)";
+    } else {
+        prep.style.backgroundImage = "url(../assets/css/pics/fish.png)";
     }
 }

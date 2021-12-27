@@ -45,15 +45,6 @@ function tableCreate() {
         let result = results[key];
         if (result.level1 != null || result.level2 != null || result.level3 != null) {
             console.log(result.level1);
-            if (result.level1 === null) {
-                result.level1 = 0;
-            }
-            if (result.level2 === null) {
-                result.level2 = 0;
-            }
-            if (result.level3 === null) {
-                result.level3 = 0;
-            }
             statistic.push({
                 username: key,
                 level1: result.level1,
@@ -67,14 +58,23 @@ function tableCreate() {
     statistic.sort((o1, o2) => o2.sum - o1.sum);
 
     statistic.forEach((result) => {
+        if (result.level1 === null) {
+            result.level1 = 0;
+        }
+        if (result.level2 === null) {
+            result.level2 = 0;
+        }
+        if (result.level3 === null) {
+            result.level3 = 0;
+        }
         let tr = document.createElement('tr');
         let td = document.createElement('td');
         td.innerHTML = result.username;
         tr.appendChild(td);
-        var td = document.createElement('td');
+        var td2 = document.createElement('td');
         var td1 = document.createElement('td');
-        td.innerHTML = '1 уровень: ' + (result.level1) + "<br/><b>" + '2 уровень: ' + (result.level2) + "<br/><b>" + '3 уровень: ' + (result.level3);
-        tr.appendChild(td);
+        td2.innerHTML = '1 уровень: ' + (result.level1) + "<br/><b>" + '2 уровень: ' + (result.level2) + "<br/><b>" + '3 уровень: ' + (result.level3);
+        tr.appendChild(td2);
         td1.innerHTML = result.sum;
         tr.appendChild(td1);
         tbl.appendChild(tr);
